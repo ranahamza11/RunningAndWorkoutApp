@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/setupFragment">
+
+    <action
+        android:id="@+id/action_global_trackingFragment"
+        app:destination="@+id/trackingFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/action_global_runFragment"
+        app:destination="@id/runFragment"
+        app:popUpTo="@id/runFragment"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"/>
+
+    <fragment
+        android:id="@+id/runFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.RunFragment"
+        android:label="RunFragment"
+        tools:layout="@layout/fragment_run">
+        <action
+            android:id="@+id/action_runFragment_to_trackingFragment"
+            app:destination="@id/trackingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.SetupFragment"
+        android:label="SetupFragment"
+        tools:layout="@layout/fragment_setup">
+        <action
+            android:id="@+id/action_setupFragment_to_runFragment"
+            app:popUpTo="@id/setupFragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"
+            app:destination="@id/runFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+    </fragment>
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.TrackingFragment"
+        android:label="TrackingFragment"
+        tools:layout="@layout/fragment_tracking">
+        <action
+            android:id="@+id/action_trackingFragment_to_runFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/runFragment"
+            app:launchSingleTop="true"
+            app:destination="@id/runFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.StatisticsFragment"
+        android:label="StatisticsFragment"
+        tools:layout="@layout/fragment_statistics"
+        >
+    </fragment>
+    <fragment
+        android:id="@+id/plansFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.PlansFragment"
+        android:label="PlansFragment"
+        tools:layout="@layout/fragment_plans">
+        <action
+            android:id="@+id/action_plansFragment_to_workoutDetailsFragment"
+            app:destination="@id/workoutDetailsFragment" />
+        <action
+            android:id="@+id/action_plansFragment_to_restDayFragment"
+            app:destination="@id/restDayFragment" />
+        <action
+            android:id="@+id/action_plansFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.RestFragment"
+        android:label="RestFragment"
+        tools:layout="@layout/fragment_rest">
+        <action
+            android:id="@+id/action_restFragment_to_workoutFragment"
+            app:destination="@id/workoutFragment" />
+        <action
+            android:id="@+id/action_restFragment_to_plansFragment"
+            app:destination="@id/plansFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/plansFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/workoutFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.WorkoutFragment"
+        android:label="WorkoutFragment"
+        tools:layout="@layout/fragment_workout">
+        <action
+            android:id="@+id/action_workoutFragment_to_restFragment"
+            app:destination="@id/restFragment" />
+        <action
+            android:id="@+id/action_workoutFragment_to_plansFragment"
+            app:destination="@id/plansFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/plansFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_workoutFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutDetailsFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.WorkoutDetailsFragment"
+        android:label="WorkoutDetailsFragment"
+        tools:layout="@layout/fragment_workout_details">
+        <action
+            android:id="@+id/action_workoutDetailsFragment_to_startingWorkoutScreenFragment"
+            app:destination="@id/startingWorkoutScreenFragment" />
+        <action
+            android:id="@+id/action_workoutDetailsFragment_to_plansFragment"
+            app:popUpTo="@id/plansFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:destination="@id/plansFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startingWorkoutScreenFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.StartingWorkoutScreenFragment"
+        android:label="StartingWorkoutScreenFragment"
+        tools:layout="@layout/fragment_starting_workout_screen">
+        <action
+            android:id="@+id/action_startingWorkoutScreenFragment_to_workoutFragment"
+            app:destination="@id/workoutFragment" />
+        <action
+            android:id="@+id/action_startingWorkoutScreenFragment_to_plansFragment"
+            app:destination="@id/plansFragment"
+            app:popUpTo="@id/plansFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_plansFragment"
+            app:destination="@id/plansFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/plansFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.ResultFragment"
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_plansFragment"
+            app:destination="@id/plansFragment"
+            app:popUpTo="@id/plansFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_resultFragment_to_historyFragment"
+            app:popUpTo="@id/historyFragment"
+            app:launchSingleTop="true"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restDayFragment"
+        android:name="com.drovisfrovis.runningandworkout.ui.fragments.workout.RestDayFragment"
+        android:label="RestDayFragment"
+        tools:layout="@layout/fragment_rest_day">
+        <action
+            android:id="@+id/action_restDayFragment_to_plansFragment"
+            app:destination="@id/plansFragment"
+            app:popUpTo="@id/plansFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
